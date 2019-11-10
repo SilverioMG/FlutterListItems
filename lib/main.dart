@@ -11,14 +11,14 @@ class MyApp extends StatelessWidget{
 
     return MaterialApp(
       title: 'List Items',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Welcome to ListItems on Flutter"),
-        ),
-        body: Center(
-          child: RandomWords(),
-        )
-      )
+      theme: ThemeData(
+        primaryColor: Colors.lightGreen,
+        primaryColorDark: Colors.lightGreen[800],
+        primaryColorLight: Colors.lightGreen[100],
+        accentColor: Colors.red[300]
+      ),
+      home: RandomWords()
     );
   }
+
 }
