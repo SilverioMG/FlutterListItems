@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_listitems/widget/random_words.dart';
+import 'package:flutter_listitems/widget/saved_words.dart';
 
 
 void main() => runApp(MyApp());
@@ -17,7 +18,12 @@ class MyApp extends StatelessWidget{
         primaryColorLight: Colors.lightGreen[100],
         accentColor: Colors.red[300]
       ),
-      home: RandomWords()
+      initialRoute: '/',
+      routes:{
+        '/': (context) => RandomWords(),
+        '/saved': (context) => SavedWords()
+      },
+      //home: RandomWords() //No se indica si se especifica el parámetro 'initialRoute'.
     );
   }
 

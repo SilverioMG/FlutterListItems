@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_listitems/widget/saved_words.dart';
 
 class RandomWords extends StatefulWidget{
 
@@ -9,7 +10,7 @@ class RandomWords extends StatefulWidget{
 
 class _RandomWordsState extends State<RandomWords> {
   final List<WordPair> _suggestions = <WordPair>[];
-  final TextStyle _fontSizeStyle = TextStyle(fontSize: 32.0);
+  final TextStyle _fontSizeStyle = TextStyle(fontSize: 20.0);
   final Set<WordPair> _saved = Set<WordPair>();
 
   @override
@@ -33,38 +34,9 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
-  //Navegación a Vista 'Saved'.
+  //Navegación a Vista 'Saved' pasándole como argumento la listas de elementos guardados que debe mostrar.
   void _pushSaved(){
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context){
-          final Iterable<ListTile> tiles = _saved.map(
-              (WordPair pair){
-                return ListTile(
-                  title: Text(
-                    pair.asCamelCase,
-                    style: _fontSizeStyle
-                  )
-                );
-              }
-          );
-
-          final List<Widget> divided = ListTile.divideTiles(
-            context:context,
-            tiles: tiles,
-          )
-          .toList();
-
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('Saved Items'),
-            ),
-            body: ListView(children: divided)
-          );
-        }
-      )
-    );
-
+    Navigator.of(context).pushNamed('/saved', arguments: ParamsNavigationSavedWords(_saved));
   }
 
   Widget _buildSuggestions() {
