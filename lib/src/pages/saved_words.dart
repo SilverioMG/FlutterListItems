@@ -16,8 +16,7 @@ class _SavedWordState extends State<SavedWords>{
   Set<WordPair> _savedItems;
   final TextStyle _fontSizeStyle = TextStyle(fontSize: 20.0);
 
-  _SavedWordState(Set<WordPair> this._savedItems){
-  }
+  _SavedWordState(Set<WordPair> this._savedItems); //{}
 
   @override
   Widget build(BuildContext context) {

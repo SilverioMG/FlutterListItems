@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:flutter_listitems/widget/saved_words.dart';
+
+import 'package:flutter_listitems/src/pages/saved_words.dart';
+
+
 
 class RandomWords extends StatefulWidget{
 
